@@ -13,11 +13,12 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @RequestMapping("hello") public Object hello(String[] args) {
+    @RequestMapping("hello")
+    public Object hello(String[] args) {
         System.out.println("hello Mr.Tree");
         System.out.println("hello Mr.Zhu");
-
-                 return "hello";
+        System.out.println("hello Hui");
+        return "hello";
     }
 
 
