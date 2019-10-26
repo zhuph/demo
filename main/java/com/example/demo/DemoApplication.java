@@ -15,6 +15,7 @@ public class DemoApplication {
 
     @RequestMapping("hello")
     public Object hello(String[] args) {
+        System.out.println("hello Mr.Tree");
       return "hello";
     }
 
