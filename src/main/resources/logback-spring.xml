@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!--value=“logs” – 表示保存项目的目录下-->
+    <property name="LOG_HOME" value="logs/demo.log"/>
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- 按照时间，大小生成日志文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--SizeAndTimeBasedRollingPolicy滚动类按照大小和日期两个规则生成-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover ，每分钟生成一份日志文件-->
+            <fileNamePattern>${LOG_HOME}-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <!--保存30天-->
+            <MaxHistory>30</MaxHistory>
+            <!--超过指定的大小就新建一个日志文件-->
+            <!--<maxFileSize>3KB</maxFileSize>-->
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- 日志输出级别 -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
