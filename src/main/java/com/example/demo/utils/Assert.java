@@ -53,7 +53,7 @@ public class Assert {
      * @param object
      * @param message
      */
-    public static void mustNull(@Nullable Object object, String message) {
+    public static void mustNull(Object object, String message) {
         if (!StringUtils.isEmpty(object)) {
             throw new IllegalArgumentException(message);
         }
@@ -65,7 +65,7 @@ public class Assert {
      * @param object
      * @param message
      */
-    public static void notNull(@Nullable Object object, String message) {
+    public static void notNull(Object object, String message) {
         if (StringUtils.isEmpty(object)) {
             throw new IllegalArgumentException(message);
         }
@@ -90,7 +90,7 @@ public class Assert {
      * @param array
      * @param message
      */
-    public static void cannotEmpty(@Nullable Object[] array, String message) {
+    public static void cannotEmpty(Object[] array, String message) {
         if (ObjectUtils.isEmpty(array)) {
             throw new IllegalArgumentException(message);
         }
@@ -128,7 +128,7 @@ public class Assert {
      * @param collection
      * @param message
      */
-    public static void cannotEmpty(@Nullable Collection<?> collection, String message) {
+    public static void cannotEmpty(Collection<?> collection, String message) {
         if (CollectionUtils.isEmpty(collection)) {
             throw new IllegalArgumentException(message);
         }
